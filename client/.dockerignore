@@ -1,0 +1,13 @@
+# @see https://docs.docker.com/reference/build-checks/copy-ignored-file/
+
+# Files which match the patterns in a .dockerignore file are not present in the context of the image when it is built. 
+# Trying to copy or add a file which is missing from the context will result in a build error.
+
+Dockerfile
+.dockerignore
+node_modules
+npm-debug.log
+README.md
+.next
+.git
+.nvmrc
