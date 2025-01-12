@@ -1,14 +1,25 @@
 services:
-  next-app:
+  client:
     container_name: auth-app-client
     env_file:
-      - .env
-      - .env.local
+      - ./client/.env
     build:
       context: ./client
     restart: always
     ports:
       - 3000:3000
+    networks:
+      - auth-app-network
+
+  server:
+    container_name: auth-app-server
+    env_file:
+      - ./server/.env
+    build:
+      context: ./server
+    restart: always
+    ports:
+      - 3001:3000
     networks:
       - auth-app-network
 
