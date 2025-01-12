@@ -1,0 +1,21 @@
+services:
+  next-app:
+    container_name: auth-app-client
+    env_file:
+      - .env
+      - .env.local
+    build:
+      context: ./client
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - auth-app-network
+
+  # Add more containers below (nginx, postgres, etc.)
+
+# Define a network, which allows containers to communicate
+# with each other, by using their container name as a hostname
+networks:
+  auth-app-network:
+    external: true
